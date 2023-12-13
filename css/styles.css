@@ -16,6 +16,23 @@
     text-align: center;
 }
 
+.rosa {
+    border-bottom: 3px solid var(--one-player);
+}
+
+.verde {
+    border-bottom: 3px solid var(--two-player);
+}
+
+.three {
+    border-bottom: 3px solid var(--three-player);
+}
+
+.four {
+    border-bottom: 3px solid var(--for-player);
+}
+
+
 .index header {
     background-image: linear-gradient(0deg, rgba(22,26,34,1) 10%, rgba(22,26,34,0) 40%, rgba(22,26,34,1) 100%), url(../img/alhambra-3.png);
     background-size: cover;
@@ -59,10 +76,10 @@ header {
 #menu > ul > li {
     list-style: none;
 }
-
+/* 
 .uplayer {
     border-bottom: solid 5px var(--no-player);
-}
+} */
 
 
 section > h2 {

@@ -10,7 +10,7 @@ define('ERR_USUARIO',2); //Usuario o contraseña incorrectos
 //siempre localhost), el usuario ('root') y la contraseña (vacía)
 //que tiene XAMPP para MySQL y el nombre de la base de datos.
 //En este caso, nos queremos conectar a la base de datos 'usuarios'.
-$mysqli=new mysqli('localhost','root','','usuarios');
+$mysqli=new mysqli('localhost','root','','uplaydb');
 //Definimos el charset para las tildes y las eñes
 $mysqli->set_charset('utf8');
 if ($mysqli->connect_errno) {
@@ -26,7 +26,7 @@ if ($mysqli->connect_errno) {
 //lo que ha escrito el usuario en el formulario, en el input con name='id'
 //También buscamos el nombre del usuario, que nos servirá para mostrárselo
 //en las páginas que tengan acceso restringido, en este caso, principal.php
-$query='SELECT clave,nombre,foto FROM acceso WHERE identificador="'.$_POST['id'].'"';
+$query='SELECT clave,nombre,foto,color FROM users WHERE identificador="'.$_POST['id'].'"';
 
 //Obtención de resultados. Ejecutamos la consulta en la base de datos
 //Los elementos de la tabla acceso que coincidan con la búsqueda, se
@@ -48,6 +48,7 @@ if($result->num_rows!=0){
     $pass=$object->clave;
     $nombre=$object->nombre;
     $foto=$object->foto;
+    $color=$object->color;
 }
 else{
     //Si no hay resultados, es porque el identificador que ha escrito
@@ -73,6 +74,7 @@ if($_POST['pass']==$pass){
     $_SESSION['nombre']=$nombre;
     //También almacenamos la ruta de la foto para mostrarla en principal.html
     $_SESSION['foto']=$foto;
+    $_SESSION['color']=$color;
     //Como el usuario y la contraseña son correctos, después de almacenar los datos
     //en la sesión, redirigimos a principal.php, que es la página que tenemos con
     //acceso restringido

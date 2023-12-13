@@ -30,14 +30,14 @@ if (!isset($_SESSION['usuario'])) {
 
             <?php
             //Conexión a la base de datos
-            $mysqli=new mysqli('localhost','root','','usuarios');
+            $mysqli=new mysqli('localhost','root','','uplaydb');
             //Definimos el charset para las tildes y las eñes
             $mysqli->set_charset('utf8');
             if ($mysqli->connect_errno) {
                 header('Location: index.php?error='.ERR_CONN);
             }
             //Se buscan todos los usuarios en la base de datos
-            $query='SELECT * FROM acceso';
+            $query='SELECT * FROM users';
             
             //Obtención de resultados. Ejecutamos la consulta en la base de datos
             //Los elementos de la tabla acceso que coincidan con la búsqueda, se

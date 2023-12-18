@@ -9,11 +9,13 @@ session_start();
 
         <i class="fas fa-bars"></i>
         <ul>
-            <li><a href="index.html" class="option"><img  data-aos="zoom-right" data-aos-duration="1000" class="logo" src="/img/logo.svg"></a></li>
-            <li data-aos="fade-down" data-aos-duration="1600"><a href="#enunciado" class="option">Acerca</a></li>
-            <li data-aos="fade-down" data-aos-duration="1800"><a href="lugares.html" class="option">Lugares</a></li>
+            <!-- IMAGEN HEADER ICONO USUARIO -->
+            <!-- <li><a href="index.html" class="option"><img  data-aos="zoom-right" data-aos-duration="1000" class="logo" src="assets/img/users.jpg"></a></li> -->
+            
+            <li data-aos="fade-down" data-aos-duration="1600"><a href="#enunciado" class="option">Categorías</a></li>
+            <li data-aos="fade-down" data-aos-duration="1800"><a href="lugares.html" class="option">Series</a></li>
             <li data-aos="fade-down" data-aos-duration="2000"><a href="peliculas.html" class="option">Películas</a></li>
-            <li data-aos="fade-down" data-aos-duration="2200"><a href="#bibliografia" class="option">Guía</a></li>
+            <!-- <li data-aos="fade-down" data-aos-duration="2200"><a href="#bibliografia" class="option">Guía</a></li> -->
             <li data-aos="fade-down" data-aos-duration="2400"><a href="gallery.html" class="option"> 
                 <?php
                 // Verifica si $_SESSION['nombre'] está definida antes de usarla

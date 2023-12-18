@@ -4,7 +4,9 @@
 <head>
     <title>PHP - Ejemplo 6</title>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Manuale|Montserrat+Alternates&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="css/registro.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -13,20 +15,20 @@
              y a comprobar que son corretos.
              En method pondremos siempre post en los formularios -->
     <header>
-        <h1>PHP. Ejemplo 6</h1>
+        <h1>¡Regístrate hoy!</h1>
     </header>
     <main>
-        <p class="instrucciones">En este ejemplo, además del registro de usuarios del caso anterior, el usuario puede añadir una imagen de perfil. Esta foto de perfil se mostrará en la página principal cuando se identifique.</p>
+        <p class="instrucciones">Disfruta de grandes éxitos y de los mejores contenidos exclusivos.</p>
         <form action="control.php" method="post">
-            <label for="id">Identificador</label>
-            <input type="text" id="id" name="id" placeholder="Identificador">
+            <label for="id">Usuario</label>
+            <input type="text" id="id" name="id" placeholder="User">
             <label for="pass">Contraseña</label>
             <input type="password" id="pass" name="pass" placeholder="Contraseña" required>
             <input type="submit" value="Acceder al portal">
         </form>
 
         <!-- Añadimos el vínculo para el registro de un nuevo usuario -->
-        <p><a href="registro.html">Registrar nuevo usuario</a></p>
+        <p><a href="registro.php">¿Nuevo en UPlay? Registrate ahora.</a></p>
 
         <?php
         //Definimos los errores que podemos recibir

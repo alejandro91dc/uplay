@@ -24,9 +24,11 @@ if (!isset($_SESSION['usuario'])) {
 
 <body>
     <div id="headerContainer" class="index"></div>
-    <section>
-        <h2>Usuarios en la base de datos</h2>
-        <div class="gallery">
+    <section style="height:100vh; width:100vw">
+    
+    
+
+    <div class="gallery">
 
             <?php
             //Conexión a la base de datos
@@ -48,10 +50,13 @@ if (!isset($_SESSION['usuario'])) {
                     while($object=$result->fetch_object()){
                     $foto=$object->foto;
                     if(strlen($foto) == 0) {
-                        $foto="assets/img/users.jpg";
+                        //$foto="assets/img/users.jpg";
+                        $foto="assets/img/peliculas/pf.jpg";
+                        
+                        echo '<div style="background: grey; height:700px width:90px"> </div>';
                     }
                     ?>
-            <figure>
+            <figure style="background: grey; height:700px width:490px">
                 <img src="<?php echo $foto ?>" alt="">
                 <figcaption>
                     <h3><?php echo $object->nombre ?></h3>
@@ -65,20 +70,8 @@ if (!isset($_SESSION['usuario'])) {
             ?>
         </div>
 
-        <?php
-        //Presentamos el error
-        if(isset($_GET['error'])){
-            $error=(int)$_GET['error'];
-            switch($error){
-                case ERR_CONN:
-                    echo '<p class="error">Error: No se ha podido conectar con la base de datos</p>';
-                    break;
-                default:
-                    echo '<p class="error">Error desconocido</p>';
-                    break;
-            }
-        }
-        ?>
+
+
     </section>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/header-loader.js" data-header="header.php"></script> 

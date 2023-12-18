@@ -23,11 +23,10 @@
 
         // Taking all 5 values from the form data(input)
         $id = $_REQUEST['id'];
-        $clave = $_REQUEST['clave'];
-        $identificador = $_REQUEST['identificador'];
-        $email = $_REQUEST['nombre'];//correo
-        $foto = $_REQUEST['foto'];
+        $pass = $_REQUEST['pass'];
+        $email = $_REQUEST['email'];
         $color = $_REQUEST['color'];
+        $foto = 'foto';
 
       
         
@@ -35,7 +34,7 @@
         $sql = "INSERT INTO users VALUES ('$id',
             '$clave','$identificador','$email','$foto','$color')";
 
-$sql = "INSERT INTO `users` (`idAcceso`,`identificador`,`clave`,`nombre`,`foto`,`color`) VALUES (NULL,'$first_name','$last_name','$gender','$address','$email');";
+$sql = "INSERT INTO `users` (`idAcceso`,`identificador`,`clave`,`nombre`,`foto`,`color`) VALUES (NULL,'$id','$pass','email','foto','$color');";
 
 
         // Check if the query is successful

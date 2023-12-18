@@ -37,6 +37,7 @@ session_start();
 
                 ?>
             </li>
+            <li data-aos="fade-down" data-aos-duration="2800"><i class="fa-solid fa-user <?php echo $_SESSION['color']; ?>"></i></li>
             <li data-aos="fade-down" data-aos-duration="2800"><i class="fa-solid fa-xmark option" class = "cierre"></i></li>
         </ul>
     </nav>

@@ -18,18 +18,25 @@
 
 .rosa {
     border-bottom: 3px solid var(--one-player);
+    color: var(--one-player);
+
 }
 
 .verde {
     border-bottom: 3px solid var(--two-player);
+    color: var(--two-player);
 }
 
 .three {
     border-bottom: 3px solid var(--three-player);
+    color: var(--three-player);
+
 }
 
 .four {
     border-bottom: 3px solid var(--for-player);
+    color: var(--for-player);
+
 }
 
 

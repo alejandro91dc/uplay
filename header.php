@@ -45,6 +45,6 @@ $color = $_SESSION['color'];
     <div id="main-slider">
         <img src="assets/img/fondoheader.jpg">
         <div id="slider-bg"></div>
-        <div id="slider-fg"></div>
+        <div id="slider-fg" class="hoverStyle"></div>
     </div>
 </header>

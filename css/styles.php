@@ -16,3 +16,13 @@ header("Content-type: text/css");
 .userHeader .fa-user {
 color: #<?php echo $color;?>;
 }
+.hoverStyle {
+    background: transparent;
+    transition-property: background;
+    transition-duration: 3s;
+}
+
+.hoverStyle:hover {
+    border-bottom: 3px solid #<?php echo $color;?>;
+    background: linear-gradient(180deg, rgba(22, 26, 34, 0) 0%, #<?php echo $color;?> 100%);
+}

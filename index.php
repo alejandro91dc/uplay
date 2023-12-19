@@ -41,7 +41,7 @@ if (!isset($_SESSION['usuario'])) {
                 header('Location: index.php?error='.ERR_CONN);
             }
             //Se buscan todos los usuarios en la base de datos
-            $query='SELECT * FROM users';
+            $query='SELECT Ruta, Nombre, Director FROM peliculas';
             
             //Obtención de resultados. Ejecutamos la consulta en la base de datos
             //Los elementos de la tabla acceso que coincidan con la búsqueda, se
@@ -50,7 +50,7 @@ if (!isset($_SESSION['usuario'])) {
             //Se hay resultados, se extraen nombre y foto de cada uno y se presentan
             if($result->num_rows!=0) {
                     while($object=$result->fetch_object()){
-                    $foto=$object->foto;
+                    $foto=$object->Ruta;
                     if(strlen($foto) == 0) {
                         //$foto="assets/img/users.jpg";
                         $foto="assets/img/peliculas/pf.jpg";
@@ -61,8 +61,8 @@ if (!isset($_SESSION['usuario'])) {
             <figure style="background: grey; height:700px width:490px">
                 <img src="<?php echo $foto ?>" alt="">
                 <figcaption>
-                    <h3><?php echo $object->nombre ?></h3>
-                    <p><strong>Identificador: </strong><?php echo $object->identificador ?></p>
+                    <h3><?php echo $object->Nombre ?></h3>
+                    <p><strong>Director: </strong><?php echo $object->Director ?></p>
                 </figcaption>
             </figure>
 

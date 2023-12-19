@@ -15,7 +15,8 @@
              y a comprobar que son corretos.
              En method pondremos siempre post en los formularios -->
     <header>
-        <h1>¡Regístrate hoy!</h1>
+    <img src="assets/img/logos/logo.svg" alt="uplay" style="width:20%">
+        <h1>¡Bienvenido!</h1>
     </header>
     <main>
         <p class="instrucciones">Disfruta de grandes éxitos y de los mejores contenidos exclusivos.</p>

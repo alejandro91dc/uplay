@@ -47,3 +47,5 @@ color: #<?php echo $color;?>;
     border-bottom: 3px solid #<?php echo $color;?>;
 
 }
+
+

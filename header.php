@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 $color = $_SESSION['color'];
@@ -5,17 +6,16 @@ $color = $_SESSION['color'];
 
 ?>
 
-<header>
     <nav id="menu" class="uplayer userHeader">
 
         <i class="fas fa-bars"></i>
         <ul>
             <!-- IMAGEN HEADER ICONO USUARIO -->
-            <!-- <li><a href="index.html" class="option"><img  data-aos="zoom-right" data-aos-duration="1000" class="logo" src="assets/img/users.jpg"></a></li> -->
+            <li><a href="index.php" class="option"><img  data-aos="zoom-right" data-aos-duration="1000" class="logo" src="assets/img/logos/iso-1.svg"></a></li>
             
             <li data-aos="fade-down" data-aos-duration="1600"><a href="#enunciado" class="option">Categorías</a></li>
             <li data-aos="fade-down" data-aos-duration="1800"><a href="lugares.html" class="option">Series</a></li>
-            <li data-aos="fade-down" data-aos-duration="2000"><a href="peliculas.html" class="option">Películas</a></li>
+            <li data-aos="fade-down" data-aos-duration="2000"><a href="peliculas.php" class="option">Películas</a></li>
             <!-- <li data-aos="fade-down" data-aos-duration="2200"><a href="#bibliografia" class="option">Guía</a></li> -->
             <li data-aos="fade-down" data-aos-duration="2400"><a href="gallery.html" class="option"> 
                 <?php
@@ -42,9 +42,4 @@ $color = $_SESSION['color'];
             <li data-aos="fade-down" data-aos-duration="2800"><i class="fa-solid fa-xmark option" class = "cierre"></i></li>
         </ul>
     </nav>
-    <div id="main-slider">
-        <img src="assets/img/fondoheader.jpg">
-        <div id="slider-bg"></div>
-        <div id="slider-fg" class="hoverStyle"></div>
-    </div>
-</header>
+

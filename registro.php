@@ -12,6 +12,7 @@
 
 <body>
 <header>
+        <img src="assets/img/logos/logo.svg" alt="uplay" style="width:20%">
         <h1>¡Regístrate hoy!</h1>
     </header>
     <main>

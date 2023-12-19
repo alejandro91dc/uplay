@@ -13,4 +13,7 @@ $(document).ready(function() {
             console.error('Error al cargar el encabezado.');
         }
     });
+
+
+    
 });

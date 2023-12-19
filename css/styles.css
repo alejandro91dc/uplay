@@ -12,7 +12,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
 }
 
@@ -65,9 +65,57 @@ header {
 
 }
 
+header h1 {
+    font-size: 4em;
+    text-align: left;
+    margin-left: 10%;
+    margin-top: 2em;
+}
+
+header h2 {
+    font-size: 2em;
+    text-align: left;
+    margin-left: 10%;
+}
+
+header p {
+    text-align: left;
+    margin-left: 10%;
+    max-width: 80%;
+}
+
+/*SLIDER*/
+
+#headerContainer {
+    width: 100%;
+}
+
+#carousel-container {
+    margin: auto;
+    overflow: hidden;
+}
+
+#image-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    width: 100%;
+}
+
+#prev-btn, #next-btn {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/*END SLIDER*/
+
+
+
 /* imagen logo usuario header */
 .logo{
-    width: 5%;
+    width: 15%;
 }
 
 #menu {
@@ -134,11 +182,17 @@ header {
     padding: 0;
 }
 
+section {
+    background-color: #2a2a2a;
 
+}
 section > h2 {
+    font-size: 4em;
     font-family: 'Manuale', serif;
     font-weight: normal;
-    color: teal;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding-left: 1em;
 }
 
 img {
@@ -151,7 +205,6 @@ img {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 1em;
-    height: 100vh;
 }
 
 .gallery > figure {
@@ -169,7 +222,7 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #2a2a2a;
     opacity: 0;
     transition: 0.5s;
 }

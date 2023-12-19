@@ -24,10 +24,10 @@
             <label for="id">Correo</label>
             <input type="text" id="email" name="email" placeholder="Correo" required>
             <label for="pass">Elige tu color de perfil:</label></br>        
-            <input type="radio" id="rosa" name="color" value="rosa" required><input type="color" id="favcolor" name="favcolor" value="#FF9CE3">
-            <input type="radio" id="verde" name="color" value="verde"><input type="color" id="favcolor" name="favcolor" value="#9CFFAC">
-            <input type="radio" id="azul" name="color" value="azul"><input type="color" id="favcolor" name="favcolor" value="#9CF9FF">
-            <input type="radio" id="violeta" name="color" value="violeta"><input type="color" id="favcolor" name="favcolor" value="#D99CFF">
+            <input type="radio" id="rosa" name="color" value="FF9CE3" required><input type="color" id="favcolor" name="favcolor" value="#FF9CE3">
+            <input type="radio" id="verde" name="color" value="9CFFAC"><input type="color" id="favcolor" name="favcolor" value="#9CFFAC">
+            <input type="radio" id="azul" name="color" value="9CF9FF"><input type="color" id="favcolor" name="favcolor" value="#9CF9FF">
+            <input type="radio" id="violeta" name="color" value="D99CFF"><input type="color" id="favcolor" name="favcolor" value="#D99CFF">
       
 
 

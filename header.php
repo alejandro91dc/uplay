@@ -1,11 +1,12 @@
 <?php 
-session_start(); 
+session_start();
+$color = $_SESSION['color'];
 
 
 ?>
 
 <header>
-    <nav id="menu" class="uplayer <?php echo $_SESSION['color']; ?>">
+    <nav id="menu" class="uplayer userHeader">
 
         <i class="fas fa-bars"></i>
         <ul>
@@ -37,8 +38,13 @@ session_start();
 
                 ?>
             </li>
-            <li data-aos="fade-down" data-aos-duration="2800"><i class="fa-solid fa-user <?php echo $_SESSION['color']; ?>"></i></li>
+            <li data-aos="fade-down" data-aos-duration="2800"><i class="fa-solid fa-user userColor"></i></li>
             <li data-aos="fade-down" data-aos-duration="2800"><i class="fa-solid fa-xmark option" class = "cierre"></i></li>
         </ul>
     </nav>
+    <div id="main-slider">
+        <img src="assets/img/fondoheader.jpg">
+        <div id="slider-bg"></div>
+        <div id="slider-fg"></div>
+    </div>
 </header>

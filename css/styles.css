@@ -21,19 +21,24 @@
     color: var(--one-player);
 
 }
+/* 
+.userHeader {
+    border-bottom: 3px solid '<?php echo $color; ?>';
+    color: '<?php echo $color; ?>';
+   /*  background: rgb(22,26,34);
+    background: linear-gradient(180deg, rgba(22,26,34,0) 0%, rgba(156,255,172,1) 80%); 
+} */
 
-.verde {
-    border-bottom: 3px solid var(--two-player);
-    color: var(--two-player);
-}
-
-.three {
+.azul {
     border-bottom: 3px solid var(--three-player);
     color: var(--three-player);
+   /*  background: rgb(22,26,34);
+    background: linear-gradient(180deg, rgba(22,26,34,0) 0%, rgba(156,249,255,0.6012998949579832) 80%);
+ */
 
 }
 
-.four {
+.morado {
     border-bottom: 3px solid var(--for-player);
     color: var(--for-player);
 
@@ -42,7 +47,6 @@
 
 .index header {
     /* background-image: linear-gradient(0deg, rgba(22,26,34,1) 10%, rgba(22,26,34,0) 40%, rgba(22,26,34,1) 100%), url(../img/alhambra-3.png); */
-    background-image: url(../assets/img/fondoheader.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -67,6 +71,7 @@ header {
 }
 
 #menu {
+    z-index: 20;
     position: absolute;
     top: 0;
     width: 100%;
@@ -99,6 +104,34 @@ header {
 .uplayer {
     border-bottom: solid 5px var(--no-player);
 } */
+
+
+#main-slider {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+#slider-bg {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin:0;
+    padding: 0;
+}
+#slider-bg img {
+    height: 100vh;
+    width: 100%;
+    margin:0;
+    padding: 0;
+}
+#slider-fg  {
+    position: absolute;
+    backdrop-filter: blur(10px);
+    height: 40vh;
+    width: 100%;
+    margin:0;
+    padding: 0;
+}
 
 
 section > h2 {

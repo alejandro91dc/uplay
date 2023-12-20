@@ -1,5 +1,6 @@
 <?php
-
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 
 // Verifica si el usuario está autenticado
 include('seguridad.php');
@@ -28,25 +29,69 @@ if (!isset($_SESSION['usuario'])) {
 
 
 <header>
-<div id="headerContainer" class="index"></div>
+    <div id="headerContainer" class="index"></div>
+
+    <?php
+    $mysqli = new mysqli('localhost', 'root', '', 'uplaydb');
+
+    if ($mysqli->connect_error) {
+        die("Conexión fallida: " . $mysqli->connect_error);
+    }
+
+    $sql = "SELECT rutabg, Ruta, Nombre FROM peliculas";
+    $result = $mysqli->query($sql);
+
+    if ($result->num_rows > 0) {
+        $background = array();
+        while ($row = $result->fetch_assoc()) {
+            // Reemplazar barras invertidas escapadas en la ruta
+            $row['rutabg'] = str_replace('\\\\/', '/', $row['rutabg']);
+            $row['Ruta'] = str_replace('\\\\/', '/', $row['Ruta']);
+            $row['Nombre'] = str_replace('\\\\/', '/', $row['Nombre']);
+    
+            // Obtener la extensión del archivo de la ruta
+            $extension = pathinfo($row['rutabg'], PATHINFO_EXTENSION);
+    
+            // Renombrar el campo 'rutabg' con la extensión final
+            $row['rutabg'] = $row['rutabg'];
+    
+            // Decodificar la cadena JSON para 'Ruta' (si fue codificada previamente)
+    
+            // Codificar solo el campo 'Ruta' a JSON sin escapar caracteres especiales
+            $row['Ruta'] = $row['Ruta'];
+            $row['Nombre'] = $row['Nombre'];
+    
+            $background[] = $row;
+        }
+    
+        // Convertir el array a formato JSON
+        $background = json_encode($background, JSON_UNESCAPED_UNICODE);
+    
+        // Guardar los datos en un archivo JSON
+        file_put_contents('datos.json', $background);
+    
+        echo "Archivo JSON generado exitosamente.";
+            $directory_path = "js/";
+            
+            chmod($directory_path, 0755);
+        } else {
+        }
+    
 
 
-<div id="carousel-container">
-    <div id="image-carousel">
-        <!-- Las imágenes se añadirán dinámicamente aquí -->
-    </div>
-</div>
-
-<button id="prev-btn" style="display:none">&lt;</button>
-<button id="next-btn" style="display:none">&gt;</button>
-
-        <div id="slider-fg" class="hoverStyle">
-            <h1>TÍTULO DE LA PELÍCULA</h1>
-            <h2> DIRECTOR DE LA PELÍCULA</h2>
-            <p> Pues aquí va la sinopsis y tal pero para no olvidarme, tenía la idea de sustituir la imagen de la cabecera por un carrousel pero no quiero quitarla por no complicarme la cabeza asi que ykse.</p>
+    $mysqli->close();
+    ?>
+    <div id="carousel-container" class="hoverStyle">
+         <div id="slider-fg" class="hoverStyle"></div>
+         <div id="image-carousel" class=hoverStyle>
+            <!-- Las imágenes se añadirán dinámicamente aquí -->
         </div>
     </div>
+
+    <button id="prev-btn" style="display:none">&lt;</button>
+    <button id="next-btn" style="display:none">&gt;</button>
 </header>
+
 
 
 
@@ -118,11 +163,12 @@ if (!isset($_SESSION['usuario'])) {
             }
             //Se buscan todos los usuarios en la base de datos
             $query='SELECT Ruta, Nombre, Director FROM peliculas';
+            $query2='SELECT rutabg FROM peliculas';
             
             //Obtención de resultados. Ejecutamos la consulta en la base de datos
             //Los elementos de la tabla acceso que coincidan con la búsqueda, se
             //almacenarán en la variable $result
-            $result=$mysqli->query($query);
+            $result=$mysqli->query($query2);
             //Se hay resultados, se extraen nombre y foto de cada uno y se presentan
             $contador = 0;
 
@@ -165,6 +211,9 @@ if (!isset($_SESSION['usuario'])) {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/header-loader.js" data-header="header.php"></script> 
     <script src="js/header-slider.js" data-header="header.php"></script> 
+    
+
+
 </body>
 
 </html>

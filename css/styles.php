@@ -37,8 +37,7 @@ color: #<?php echo $color;?>;
 .hoverStyle {
     background: #fff0;
     border-bottom: none;
-    transition:border-bottom 30s linear; //ESTO NO VA!!!!! PORQUEEEEEEEEEEEEEKFSDJFÑAKLSDJFLSDAKFJ!!!
-    transition: background 30s linear; //ESTO NO VA!!!!! PORQUEEEEEEEEEEEEEKFSDJFÑAKLSDJFLSDAKFJ!!!
+    transition: 4s;
 
 }
 

@@ -83,6 +83,10 @@ if (!isset($_SESSION['usuario'])) {
     ?>
     <div id="carousel-container" class="hoverStyle">
          <div id="slider-fg" class="hoverStyle"></div>
+         <div id="banner">
+            <img src="assets/img/logos/logo.svg" alt="uplay" >
+            <h4>Tu plataforma de streaming para universitarios</h4>
+        </div>
          <div id="image-carousel" class=hoverStyle>
             <!-- Las imágenes se añadirán dinámicamente aquí -->
         </div>

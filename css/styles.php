@@ -30,6 +30,9 @@ header("Content-type: text/css");
 }
 
 
+li a:hover, .fa:hover {
+  color: #<?php echo $color;?>;
+}
 
 .userHeader .fa-user {
 color: #<?php echo $color;?>;

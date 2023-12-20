@@ -48,18 +48,20 @@ document.addEventListener('DOMContentLoaded', function () {
                         currentIndex = index;
                         const offset = -index * 100 + '%'; // Ajusta según el ancho de cada imagen
                         imageCarousel.style.transform = 'translateX(' + offset + ')';
-                    }
-
-                    function showNextImage() {
+                      }
+                      
+                      // ... (código anterior)
+                      
+                      // Funciones para navegar por el carrusel
+                      function showNextImage() {
                         const nextIndex = (currentIndex + 1) % backgroundData.length;
                         showImage(nextIndex);
-                    }
-
-                    function showPrevImage() {
+                      }
+                      
+                      function showPrevImage() {
                         const prevIndex = (currentIndex - 1 + backgroundData.length) % backgroundData.length;
                         showImage(prevIndex);
-                    }
-
+                      }
                     // Eventos de los botones
                     nextBtn.addEventListener('click', showNextImage);
                     prevBtn.addEventListener('click', showPrevImage);
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Autoplay
                     autoplayInterval = setInterval(() => {
                         showNextImage();
-                    }, 2000); // Cambia la duración del intervalo según sea necesario (aquí es 2000 ms o 2 segundos).
+                    }, 4000); // Cambia la duración del intervalo según sea necesario (aquí es 2000 ms o 2 segundos).
                 } else {
                     console.error("No se encontró el elemento con ID 'image-carousel' o no hay datos en la base de datos.");
                 }
@@ -75,5 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => {
                 console.error('Error en la solicitud AJAX:', error);
             });
-    }, 1000); // 1000 milis
+    }, 0); // 1000 milis
+
+
+
 });

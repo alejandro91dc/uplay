@@ -14,12 +14,13 @@
 <body>
     <div id="headerContainer" class="index"></div>
 <div id="filter-menu">
-    <button>Todas</button>
-    <button>Ciencia Ficción</button>
-    <button>Terror</button>
-    <button>Humor</button>
-    <button>Románticas</button>
-    <button>Acción</button>
+    <button><a href="peliculas.php?cat=Todas">Todas</a></button>
+    <button><a href="peliculas.php?cat=Ciencia Ficción">Ciencia Ficción</a></button>
+    <button><a href="peliculas.php?cat=Terror">Terror</a></button>
+    <button><a href="peliculas.php?cat=Misterio">Misterio</a></button>
+    <button><a href="peliculas.php?cat=Drama">Drama</a></button>
+    <button><a href="peliculas.php?cat=Musical">Musical</a></button>
+    <button><a href="peliculas.php?cat=Comedia">Comedia</a></button>
 </div>
     <div class="gallery">
 
@@ -31,13 +32,25 @@ $mysqli->set_charset('utf8');
 if ($mysqli->connect_errno) {
     header('Location: index.php?error='.ERR_CONN);
 }
+
+$cat = isset($_GET['cat']) ? $_GET['cat'] : 'Todas';
+
+if ($cat === 'Todas') {
+    // Si la categoría seleccionada es 'Todas', no aplicamos ningún filtro
+    $sql = "SELECT * FROM peliculas";
+} else {
+    // Si se selecciona una categoría específica, aplicamos el filtro
+    $sql = "SELECT * FROM peliculas WHERE Categoria = '$cat'";
+}
+
+
 //Se buscan todos los usuarios en la base de datos
 $query='SELECT Ruta, Nombre, Director FROM peliculas';
 
 //Obtención de resultados. Ejecutamos la consulta en la base de datos
 //Los elementos de la tabla acceso que coincidan con la búsqueda, se
 //almacenarán en la variable $result
-$result=$mysqli->query($query);
+$result=$mysqli->query($sql);
 //Se hay resultados, se extraen nombre y foto de cada uno y se presentan
 if($result->num_rows!=0) {
         while($object=$result->fetch_object()){

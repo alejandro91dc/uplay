@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-12-2023 a las 23:11:25
+-- Tiempo de generación: 29-12-2023 a las 23:46:50
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -51,7 +51,7 @@ INSERT INTO `peliculas` (`idPelicula`, `Nombre`, `Director`, `Sinopsis`, `Ruta`,
 (11, 'La La Land', 'Damien Chazelle', 'Mia, una joven aspirante a actriz y Sebastian, un pianista de jazz que se gana la vida tocando en sórdidos tugurios, se enamoran, pero su gran ambición por llegar a la cima en sus carreras artísticas amenaza con separarlos.', 'assets/img/peliculas/Lalaland.jpg', 'assets/img/peliculas/Lalaland-bg.jpg', 'Musical'),
 (14, 'Parásitos', 'Bong Joon-ho', 'Tanto Gi Taek como su familia están sin trabajo. Cuando su hijo mayor, Gi Woo, empieza a dar clases particulares en casa de Park , las dos familias, comienzan una interrelación de resultados imprevisibles.', 'assets/img/peliculas/Parasite.jpg', 'assets/img/peliculas/Parasite-bg.jpg', 'Drama'),
 (15, 'Pulp Fiction', 'Quentin Tarantino', 'Jules y Vincent, dos asesinos, trabajan para el gángster Marsellus Wallace. Vincent le confiesa a Jules que Marsellus le ha pedido que cuide de Mia, su mujer. Jules le recomienda prudencia porque es muy peligroso sobrepasarse con la novia del jefe.', 'assets/img/peliculas/Pfiction.jpg', 'assets/img/peliculas/Pfiction-bg.jpg', 'Misterio'),
-(25, 'El show de Truman', 'Peter Weir', 'Truman Burbank es un hombre que ha vivido en uno de esos pueblos donde nunca pasa nada. Sin embargo,algunos sucesos le hacen sospechar que algo anormal está ocurriendo. Toda su ciudad es un plató y está siendo filmada y emitida como un reality.', 'assets/img/Truman/.jpg', 'assets/img/peliculas/Elshowdetruman-bg.jpg', 'Comedia'),
+(25, 'El show de Truman', 'Peter Weir', 'Truman Burbank es un hombre que ha vivido en uno de esos pueblos donde nunca pasa nada. Sin embargo,algunos sucesos le hacen sospechar que algo anormal está ocurriendo. Toda su ciudad es un plató y está siendo filmada y emitida como un reality.', 'assets/img/peliculas/Truman.jpg', 'assets/img/peliculas/Elshowdetruman-bg.jpg', 'Comedia'),
 (26, 'Seven', 'David Fincher', 'El teniente Somersez y el detective David Mills tendrán que colaborar en la resolución de una serie de asesinatos que toman como base la relación de los siete pecados capitales: gula, pereza, soberbia, avaricia, envidia, lujuria e ira.', 'assets/img/peliculas/Menu.jpg', 'assets/img/peliculas/Seven-bg.jpg', 'Misterio'),
 (27, 'Dirty Dancing', 'Emile Ardolino', 'Baby es una joven que quiere disfrutar de su juventud. Por eso se decepciona cuando descubre que sus padres pasarán el verano con ella. Sin embargo, su suerte cambia cuando conoce a Johnny, el experto y seductor profesor de baile del complejo.', 'assets/img/peliculas/Ddancing.jpg', 'assets/img/peliculas/Ddancing-bg.jpg', 'Musical'),
 (30, 'Puñales por la espalda', 'Rian Johnson', 'Cuando el renombrado novelista de misterio Harlan Thrombey es encontrado muerto en su mansión, justo después de la celebración familiar de su 85 cumpleaños, el detective Benoit Blanc es misteriosamente reclutado para investigar el asunto.', 'assets/img/peliculas/Punales.jpg', 'assets/img/peliculas/Knivesout-bg.jpg', 'Misterio'),

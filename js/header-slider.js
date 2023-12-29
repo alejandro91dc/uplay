@@ -39,7 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         sinopsis.textContent = item.Sinopsis;
                         
                         const cat = document.createElement('h4');
-                        cat.textContent = item.Categoria;
+                        var enlace = document.createElement('a');
+                        enlace.textContent = item.Categoria;
+
+                        enlace.href = "peliculas.php?cat="+enlace.textContent;
 
                         const sliderFg = document.createElement('div');
                         sliderFg.id = 'slider-fg';
@@ -49,6 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         sliderFg.appendChild(director);
                         sliderFg.appendChild(sinopsis);
                         sliderFg.appendChild(cat);
+                        cat.appendChild(enlace);
+
                         itemContainer.appendChild(imgElement);
                         itemContainer.appendChild(sliderFg);
 

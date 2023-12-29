@@ -50,4 +50,11 @@ color: #<?php echo $color;?>;
 
 }
 
+button:hover {
+  box-shadow: 0px 10px 64px -4px #<?php echo $color;?>;
+}
+button:active {
+  border-bottom: 3px solid #<?php echo $color;?>;
+}
+
 

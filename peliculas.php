@@ -13,7 +13,14 @@
 </head>
 <body>
     <div id="headerContainer" class="index"></div>
-
+<div id="filter-menu">
+    <button>Todas</button>
+    <button>Ciencia Ficción</button>
+    <button>Terror</button>
+    <button>Humor</button>
+    <button>Románticas</button>
+    <button>Acción</button>
+</div>
     <div class="gallery">
 
 <?php

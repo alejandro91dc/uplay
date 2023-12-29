@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Espera 1 segundo (ajusta según sea necesario) antes de realizar la solicitud AJAX
     setTimeout(() => {
-        fetch('datos.json') // Cambia la ruta según sea necesario
+        fetch('datos.json') 
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -32,11 +32,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         const h1Element = document.createElement('h1');
                         h1Element.textContent = item.Nombre;
 
+                        const director = document.createElement('h3');
+                        director.textContent = item.Director;
+                        
+                        const sinopsis = document.createElement('p');
+                        sinopsis.textContent = item.Sinopsis;
+                        
+                        const cat = document.createElement('h4');
+                        cat.textContent = item.Categoria;
+
                         const sliderFg = document.createElement('div');
                         sliderFg.id = 'slider-fg';
                         sliderFg.className = 'hoverStyle';
 
                         sliderFg.appendChild(h1Element);
+                        sliderFg.appendChild(director);
+                        sliderFg.appendChild(sinopsis);
+                        sliderFg.appendChild(cat);
                         itemContainer.appendChild(imgElement);
                         itemContainer.appendChild(sliderFg);
 
@@ -49,9 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         const offset = -index * 100 + '%'; // Ajusta según el ancho de cada imagen
                         imageCarousel.style.transform = 'translateX(' + offset + ')';
                       }
-                      
-                      // ... (código anterior)
-                      
+                                            
                       // Funciones para navegar por el carrusel
                       function showNextImage() {
                         const nextIndex = (currentIndex + 1) % backgroundData.length;

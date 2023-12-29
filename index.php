@@ -38,28 +38,28 @@ if (!isset($_SESSION['usuario'])) {
         die("Conexión fallida: " . $mysqli->connect_error);
     }
 
-    $sql = "SELECT rutabg, Ruta, Nombre FROM peliculas";
+    $sql = "SELECT Nombre, Director, Sinopsis, Ruta, rutabg, Categoria FROM peliculas";
     $result = $mysqli->query($sql);
 
     if ($result->num_rows > 0) {
         $background = array();
         while ($row = $result->fetch_assoc()) {
             // Reemplazar barras invertidas escapadas en la ruta
-            $row['rutabg'] = str_replace('\\\\/', '/', $row['rutabg']);
-            $row['Ruta'] = str_replace('\\\\/', '/', $row['Ruta']);
             $row['Nombre'] = str_replace('\\\\/', '/', $row['Nombre']);
+            $row['Director'] = str_replace('\\\\/', '/', $row['Director']);
+            $row['Sinopsis'] = str_replace('\\\\/', '/', $row['Sinopsis']);
+            $row['Ruta'] = str_replace('\\\\/', '/', $row['Ruta']);
+            $row['rutabg'] = str_replace('\\\\/', '/', $row['rutabg']);
+            $row['Categoria'] = str_replace('\\\\/', '/', $row['Categoria']);
     
             // Obtener la extensión del archivo de la ruta
             $extension = pathinfo($row['rutabg'], PATHINFO_EXTENSION);
-    
-            // Renombrar el campo 'rutabg' con la extensión final
-            $row['rutabg'] = $row['rutabg'];
-    
-            // Decodificar la cadena JSON para 'Ruta' (si fue codificada previamente)
-    
-            // Codificar solo el campo 'Ruta' a JSON sin escapar caracteres especiales
-            $row['Ruta'] = $row['Ruta'];
             $row['Nombre'] = $row['Nombre'];
+            $row['Director'] = $row['Director'];
+            $row['Sinopsis'] = $row['Sinopsis'];
+            $row['Categoria'] = $row['Categoria'];
+            $row['rutabg'] = $row['rutabg'];
+            $row['Ruta'] = $row['Ruta'];
     
             $background[] = $row;
         }

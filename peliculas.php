@@ -45,7 +45,7 @@ if ($cat === 'Todas') {
 
 
 //Se buscan todos los usuarios en la base de datos
-$query='SELECT Ruta, Nombre, Director FROM peliculas';
+$query='SELECT Ruta, Nombre, Director, idPelicula FROM peliculas';
 
 //Obtención de resultados. Ejecutamos la consulta en la base de datos
 //Los elementos de la tabla acceso que coincidan con la búsqueda, se
@@ -62,7 +62,7 @@ if($result->num_rows!=0) {
             echo '<div style="background: grey; height:700px width:90px"> </div>';
         }
         ?>
-<figure style="background: grey; height:700px width:490px">
+<figure style="background: grey; height:700px width:490px" data-id="<?php echo $object->idPelicula ?>" onclick="showMovieDetails(this)">
     <img src="<?php echo $foto ?>" alt="">
     <figcaption class="hoverStyle">
         <h3><?php echo $object->Nombre ?></h3>
@@ -79,6 +79,8 @@ if($result->num_rows!=0) {
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="js/header-loader.js" data-header="header.php"></script> 
+<script src="js/details.js" data-header="header.php"></script> 
+
 
 
 

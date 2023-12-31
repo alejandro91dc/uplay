@@ -14,13 +14,13 @@
 <body>
     <div id="headerContainer" class="index"></div>
 <div id="filter-menu">
-    <button><a href="peliculas.php?cat=Todas">Todas</a></button>
-    <button><a href="peliculas.php?cat=Ciencia Ficción">Ciencia Ficción</a></button>
-    <button><a href="peliculas.php?cat=Terror">Terror</a></button>
-    <button><a href="peliculas.php?cat=Misterio">Misterio</a></button>
-    <button><a href="peliculas.php?cat=Drama">Drama</a></button>
-    <button><a href="peliculas.php?cat=Musical">Musical</a></button>
-    <button><a href="peliculas.php?cat=Comedia">Comedia</a></button>
+    <a href="peliculas.php?cat=Todas"><button>Todas</button></a>
+    <a href="peliculas.php?cat=Ciencia Ficción"><button>Ciencia Ficción</button></a>
+    <a href="peliculas.php?cat=Terror"><button>Terror</button></a>
+    <a href="peliculas.php?cat=Misterio"><button>Misterio</button></a>
+    <a href="peliculas.php?cat=Drama"><button>Drama</button></a>
+    <a href="peliculas.php?cat=Musical"><button>Musical</button></a>
+    <a href="peliculas.php?cat=Comedia"><button>Comedia</button></a>
 </div>
     <div class="gallery">
 

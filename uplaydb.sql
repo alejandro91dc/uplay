@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-12-2023 a las 23:46:50
+-- Tiempo de generación: 30-12-2023 a las 18:37:02
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -61,6 +61,29 @@ INSERT INTO `peliculas` (`idPelicula`, `Nombre`, `Director`, `Sinopsis`, `Ruta`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `series`
+--
+
+CREATE TABLE `series` (
+  `idSerie` int(11) NOT NULL,
+  `Nombre` varchar(30) NOT NULL,
+  `Temporadas` int(20) NOT NULL,
+  `Sinopsis` varchar(250) NOT NULL,
+  `Ruta` varchar(50) NOT NULL,
+  `rutabg` varchar(50) NOT NULL,
+  `Categoria` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `series`
+--
+
+INSERT INTO `series` (`idSerie`, `Nombre`, `Temporadas`, `Sinopsis`, `Ruta`, `rutabg`, `Categoria`) VALUES
+(1, 'Nombre serie', 2, 'sinopsis de la serie', 'assets/img/series/nombreSerie.jpg', 'assets/img/series/nombreSerie-bg.jpg', 'Terror');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -101,6 +124,12 @@ ALTER TABLE `peliculas`
   ADD PRIMARY KEY (`idPelicula`);
 
 --
+-- Indices de la tabla `series`
+--
+ALTER TABLE `series`
+  ADD PRIMARY KEY (`idSerie`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -115,6 +144,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `peliculas`
   MODIFY `idPelicula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT de la tabla `series`
+--
+ALTER TABLE `series`
+  MODIFY `idSerie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

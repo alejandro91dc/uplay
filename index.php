@@ -23,6 +23,8 @@ if (!isset($_SESSION['usuario'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="css/styles.php">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="assets/img/logos/iso-1.svg">
+
 </head>
 
 <body>
@@ -116,7 +118,7 @@ if (!isset($_SESSION['usuario'])) {
                 header('Location: index.php?error='.ERR_CONN);
             }
             //Se buscan todos los usuarios en la base de datos
-            $query='SELECT Ruta, Nombre, Director FROM peliculas';
+            $query='SELECT Ruta, Nombre, Director, idPelicula FROM peliculas';
             
             //Obtención de resultados. Ejecutamos la consulta en la base de datos
             //Los elementos de la tabla acceso que coincidan con la búsqueda, se
@@ -133,7 +135,7 @@ if (!isset($_SESSION['usuario'])) {
                         $foto = "assets/img/peliculas/pf.jpg";
                     }
             
-                    echo '<figure style="background: grey; width:490px">';
+                    echo '<figure style="background: grey; width:490px" data-id="'.$object->idPelicula.'" onclick="showMovieDetails(this)">';
                     echo '<img src="' . $foto . '" alt="">';
                     echo '<figcaption class="hoverStyle">';
                     echo '<h3>' . $object->Nombre . '</h3>';
@@ -216,6 +218,7 @@ if (!isset($_SESSION['usuario'])) {
     <script src="js/header-loader.js" data-header="header.php"></script> 
     <script src="js/header-slider.js" data-header="header.php"></script> 
     <script src="js/submenu.js" data-header="header.php"></script> 
+    <script src="js/details.js" data-header="header.php"></script> 
 
 
 </body>

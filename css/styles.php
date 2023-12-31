@@ -30,7 +30,7 @@ header("Content-type: text/css");
 }
 
 
-li a:hover, .fa:hover {
+li a:hover, .fa:hover, .fa-solid:hover {
   color: #<?php echo $color;?>;
 }
 
@@ -45,7 +45,7 @@ color: #<?php echo $color;?>;
 }
 
 .hoverStyle:hover {
-    background: linear-gradient(180deg, rgba(22, 26, 34, 0) 0%, #<?php echo $color;?> 100%);
+    background: linear-gradient(180deg, rgba(22, 26, 34, 0) 0%, #<?php echo $color;?> 100%)!important;
     border-bottom: 3px solid #<?php echo $color;?>;
 
 }

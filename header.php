@@ -11,8 +11,8 @@ $color = $_SESSION['color'];
     <!-- IMAGEN HEADER ICONO USUARIO -->
     <li><a href="index.php" class="option"><img  data-aos="zoom-right" data-aos-duration="1000" class="logo" src="assets/img/logos/iso-1.svg"></a></li>
     
-    <li data-aos="fade-down" data-aos-duration="1600"><a href="#enunciado" class="option">Categorías</a></li>
-    <li data-aos="fade-down" data-aos-duration="1800"><a href="lugares.html" class="option">Series</a></li>
+    <li data-aos="fade-down" data-aos-duration="1600"><a href="categorias.php" class="option">Categorías</a></li>
+    <li data-aos="fade-down" data-aos-duration="1800"><a href="series.php" class="option">Series</a></li>
     <li data-aos="fade-down" data-aos-duration="2000"><a href="peliculas.php" class="option">Películas</a></li>
     <!-- <li data-aos="fade-down" data-aos-duration="2200"><a href="#bibliografia" class="option">Guía</a></li> -->
 

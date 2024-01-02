@@ -19,6 +19,7 @@ if (!isset($_SESSION['usuario'])) {
 <head>
     <title>Uplay</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Manuale|Montserrat+Alternates&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="css/styles.php">
@@ -72,7 +73,7 @@ if (!isset($_SESSION['usuario'])) {
         // Guardar los datos en un archivo JSON
         file_put_contents('datos.json', $background);
     
-        echo "Archivo JSON generado exitosamente.";
+        /* echo "Archivo JSON generado exitosamente."; */
             $directory_path = "js/";
             
             chmod($directory_path, 0755);
@@ -101,7 +102,8 @@ if (!isset($_SESSION['usuario'])) {
 
 
 
-
+   <!-- BOTÓN GO-UP -->
+   <button id="go-up" onclick="goUp()" type="button"><i class="fa-solid fa-arrow-up"></i></button>
 
     <section style=" width:100vw">
     
@@ -118,7 +120,53 @@ if (!isset($_SESSION['usuario'])) {
                 header('Location: index.php?error='.ERR_CONN);
             }
             //Se buscan todos los usuarios en la base de datos
-            $query='SELECT Ruta, Nombre, Director, idPelicula FROM peliculas';
+            $query='SELECT Ruta, rutabg, Nombre, Director, idPelicula FROM peliculas';
+            
+            //Obtención de resultados. Ejecutamos la consulta en la base de datos
+            //Los elementos de la tabla acceso que coincidan con la búsqueda, se
+            //almacenarán en la variable $result
+            $result=$mysqli->query($query);
+            //Se hay resultados, se extraen nombre y foto de cada uno y se presentan
+            $contador = 0;
+
+            if ($result->num_rows != 0) {
+                while ($object = $result->fetch_object()) {
+                    $foto = strlen($object->Ruta) > 0 ? $object->Ruta : "assets/img/peliculas/pf.jpg";
+                    $bg = $object->rutabg;
+            
+                    echo '<figure data-id="'.$object->idPelicula.'" onclick="showMovieDetails(this)">';
+                    echo '<img srcset="'.$bg.' 375w, '.$foto.' 1200w" sizes="(max-width: 767px) 375px, 1200px" src="'.$foto.'" alt="">';
+                    echo '<figcaption class="hoverStyle">';
+                    echo '<h3>' . $object->Nombre . '</h3>';
+                    echo '<p><strong>Director: </strong>' . $object->Director . '</p>';
+                    echo '</figcaption>';
+                    echo '</figure>';
+            
+                    $contador++;
+            
+                    // Salir del bucle después de mostrar 8 elementos
+                    if ($contador >= 8) {
+                        break;
+                    }
+                }
+            }
+            ?>
+    </div>
+    
+    <h2> Series </h2>
+
+    <div class="gallery">
+
+    <?php
+            //Conexión a la base de datos
+            $mysqli=new mysqli('localhost','root','','uplaydb');
+            //Definimos el charset para las tildes y las eñes
+            $mysqli->set_charset('utf8');
+            if ($mysqli->connect_errno) {
+                header('Location: index.php?error='.ERR_CONN);
+            }
+            //Se buscan todos los usuarios en la base de datos
+            $query='SELECT Ruta, Nombre, Temporadas, idSerie FROM series';
             
             //Obtención de resultados. Ejecutamos la consulta en la base de datos
             //Los elementos de la tabla acceso que coincidan con la búsqueda, se
@@ -135,69 +183,18 @@ if (!isset($_SESSION['usuario'])) {
                         $foto = "assets/img/peliculas/pf.jpg";
                     }
             
-                    echo '<figure style="background: grey; width:490px" data-id="'.$object->idPelicula.'" onclick="showMovieDetails(this)">';
+                    echo '<figure style="background: grey; width:490px" data-id="'.$object->idSerie.'" onclick="showSerieDetails(this)">';
                     echo '<img src="' . $foto . '" alt="">';
                     echo '<figcaption class="hoverStyle">';
                     echo '<h3>' . $object->Nombre . '</h3>';
-                    echo '<p><strong>Director: </strong>' . $object->Director . '</p>';
+                    echo '<p><strong>Temporadas: </strong>' . $object->Temporadas . '</p>';
                     echo '</figcaption>';
                     echo '</figure>';
             
                     $contador++;
             
                     // Salir del bucle después de mostrar 4 elementos
-                    if ($contador >= 4) {
-                        break;
-                    }
-                }
-            }
-
-            ?>
-    </div>
-    
-    <h2> Series </h2>
-
-    <div class="gallery">
-
-            <?php
-            //Conexión a la base de datos
-            $mysqli=new mysqli('localhost','root','','uplaydb');
-            //Definimos el charset para las tildes y las eñes
-            $mysqli->set_charset('utf8');
-            if ($mysqli->connect_errno) {
-                header('Location: index.php?error='.ERR_CONN);
-            }
-            //Se buscan todos los usuarios en la base de datos
-            $query='SELECT Ruta, Nombre, Director FROM peliculas';
-            $query2='SELECT rutabg FROM peliculas';
-            
-            //Obtención de resultados. Ejecutamos la consulta en la base de datos
-            //Los elementos de la tabla acceso que coincidan con la búsqueda, se
-            //almacenarán en la variable $result
-            $result=$mysqli->query($query2);
-            //Se hay resultados, se extraen nombre y foto de cada uno y se presentan
-            $contador = 0;
-
-            if ($result->num_rows != 0) {
-                while ($object = $result->fetch_object()) {
-                    $foto = $object->Ruta;
-            
-                    if (strlen($foto) == 0) {
-                        $foto = "assets/img/peliculas/pf.jpg";
-                    }
-            
-                    echo '<figure style="background: grey;  width:490px">';
-                    echo '<img src="' . $foto . '" alt="">';
-                    echo '<figcaption class="hoverStyle">';
-                    echo '<h3>' . $object->Nombre . '</h3>';
-                    echo '<p><strong>Director: </strong>' . $object->Director . '</p>';
-                    echo '</figcaption>';
-                    echo '</figure>';
-            
-                    $contador++;
-            
-                    // Salir del bucle después de mostrar 4 elementos
-                    if ($contador >= 4) {
+                    if ($contador >= 8) {
                         break;
                     }
                 }
@@ -219,7 +216,11 @@ if (!isset($_SESSION['usuario'])) {
     <script src="js/header-slider.js" data-header="header.php"></script> 
     <script src="js/submenu.js" data-header="header.php"></script> 
     <script src="js/details.js" data-header="header.php"></script> 
+    <script src="js/submenu.js" data-header="header.php"></script> 
+    <script src="js/goup.js"></script> 
+   
 
+    
 
 </body>
 

@@ -31,20 +31,35 @@
       
         
         // We are going to insert the data into our sampleDB table
-        $sql = "INSERT INTO users VALUES ('$id',
-            '$clave','$identificador','$email','$foto','$color')";
+        // $sql = "INSERT INTO users VALUES ('$id',
+        //     '$clave','$identificador','$email','$foto','$color')";
 
 $sql = "INSERT INTO `users` (`idAcceso`,`identificador`,`clave`,`nombre`,`foto`,`color`) VALUES (NULL,'$id','$pass','email','foto','$color');";
+?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Uplay</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Manuale|Montserrat+Alternates&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="css/styles.php">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="assets/img/logos/iso-1.svg">
+
+</head>
+
+<body>
 
 
-        // Check if the query is successful
-        if(mysqli_query($conn, $sql)){
-            echo "<h3>data stored in a database successfully."
-                . " Please browse your localhost php my admin"
-                . " to view the updated data</h3>";
+<header style="justify-content:center; align-items:center">
+<img src="assets/img/logos/logo.svg" alt="uplay" style="width:20%">
+    <?php 
+    if(mysqli_query($conn, $sql)){
+            echo "<h2 style='margin:0em; margin-top: 2em; margin-bottom: 0; text-align:center' >Bienvenido </h2> </br>  <h1 class='userHeader' style='margin:0; text-align:center'> $id </h1>  </br> <h4 style='margin:0;'> Prepara las palomitas </h4>
+            <a href='index.php'><button id='input-button' >Entrar</button></a>";
 
-            echo nl2br("\n$first_name\n $last_name\n "
-                . "$gender\n $address\n $email");
         } else{
             echo "ERROR: Hush! Sorry $sql. "
                 . mysqli_error($conn);
@@ -53,6 +68,29 @@ $sql = "INSERT INTO `users` (`idAcceso`,`identificador`,`clave`,`nombre`,`foto`,
         // Close connection
         mysqli_close($conn);
         ?>
+
+        
+</header>
+</body>
+</html>
+
+
+
+</section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/header-loader.js" data-header="header.php"></script> 
+    <script src="js/header-slider.js" data-header="header.php"></script> 
+    <script src="js/submenu.js" data-header="header.php"></script> 
+    <script src="js/details.js" data-header="header.php"></script> 
+    <script src="js/submenu.js" data-header="header.php"></script> 
+    <script src="js/goup.js"></script> 
+
+</body>
+
+</html> 
+
+       
+        
   
 </body>
 

@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Películas - Uplay</title>
+    <title>Series - Uplay</title>
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,15 +19,14 @@
 
     <div id="headerContainer" class="index"></div>
 <div id="filter-menu">
-    <a href="peliculas.php?cat=Todas"><button>Todas</button></a>
-    <a href="peliculas.php?cat=Acción"><button>Acción</button></a>
-    <a href="peliculas.php?cat=Terror"><button>Terror</button></a>
-    <a href="peliculas.php?cat=Misterio"><button>Misterio</button></a>
-    <a href="peliculas.php?cat=Drama"><button>Drama</button></a>
-    <a href="peliculas.php?cat=Musical"><button>Musical</button></a>
-    <a href="peliculas.php?cat=Comedia"><button>Comedia</button></a>
-</div>
+    <a href="series.php?cat=Todas"><button>Todas</button></a>
+    <a href="series.php?cat=Historia"><button>Historia</button></a>
+    <a href="series.php?cat=Misterio"><button>Misterio</button></a>
+    <a href="series.php?cat=Drama"><button>Drama</button></a>
+    <a href="series.php?cat=Romance"><button>Romance</button></a>
+    <a href="series.php?cat=Terror"><button>Terror</button></a>
 
+</div>
     <div class="gallery">
 
 <?php
@@ -43,15 +42,15 @@ $cat = isset($_GET['cat']) ? $_GET['cat'] : 'Todas';
 
 if ($cat === 'Todas') {
     // Si la categoría seleccionada es 'Todas', no aplicamos ningún filtro
-    $sql = "SELECT * FROM peliculas";
+    $sql = "SELECT * FROM series";
 } else {
     // Si se selecciona una categoría específica, aplicamos el filtro
-    $sql = "SELECT * FROM peliculas WHERE Categoria = '$cat'";
+    $sql = "SELECT * FROM series WHERE Categoria = '$cat'";
 }
 
 
 //Se buscan todos los usuarios en la base de datos
-$query='SELECT Ruta, Nombre, Director, idPelicula FROM peliculas';
+$query='SELECT Ruta, Nombre, Temporadas, idSerie FROM series';
 
 //Obtención de resultados. Ejecutamos la consulta en la base de datos
 //Los elementos de la tabla acceso que coincidan con la búsqueda, se
@@ -63,16 +62,16 @@ if($result->num_rows!=0) {
         $foto=$object->Ruta;
         if(strlen($foto) == 0) {
             //$foto="assets/img/users.jpg";
-            $foto="assets/img/peliculas/pf.jpg";
+            $foto="assets/img/series/pf.jpg";
             
             echo '<div style="background: grey; height:700px width:90px"> </div>';
         }
         ?>
-<figure style="background: grey; height:700px width:490px" data-id="<?php echo $object->idPelicula ?>" onclick="showMovieDetails(this)">
+<figure style="background: grey; height:700px width:490px" data-id="<?php echo $object->idSerie ?>" onclick="showSerieDetails(this)">
     <img src="<?php echo $foto ?>" alt="">
     <figcaption class="hoverStyle">
         <h3><?php echo $object->Nombre ?></h3>
-        <p><strong>Director: </strong><?php echo $object->Director ?></p>
+        <p><strong>Temporadas: </strong><?php echo $object->Temporadas ?></p>
     </figcaption>
 </figure>
 
@@ -88,6 +87,7 @@ if($result->num_rows!=0) {
 <script src="js/details.js" data-header="header.php"></script> 
 <script src="js/submenu.js" data-header="header.php"></script> 
 <script src="js/goup.js"></script> 
+
 
 
 

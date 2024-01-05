@@ -109,6 +109,7 @@ if (!isset($_SESSION['usuario'])) {
     
     <h2> Películas </h2>
 
+
     <div class="gallery">
 
             <?php
@@ -135,7 +136,7 @@ if (!isset($_SESSION['usuario'])) {
                     $bg = $object->rutabg;
             
                     echo '<figure data-id="'.$object->idPelicula.'" onclick="showMovieDetails(this)">';
-                    echo '<img srcset="'.$bg.' 375w, '.$foto.' 1200w" sizes="(max-width: 767px) 375px, 1200px" src="'.$foto.'" alt="">';
+                    echo '<img data-mobile-src="'.$bg.'" data-desktop-src="'.$foto.'" alt="">';
                     echo '<figcaption class="hoverStyle">';
                     echo '<h3>' . $object->Nombre . '</h3>';
                     echo '<p><strong>Director: </strong>' . $object->Director . '</p>';
@@ -218,6 +219,34 @@ if (!isset($_SESSION['usuario'])) {
     <script src="js/details.js" data-header="header.php"></script> 
     <script src="js/submenu.js" data-header="header.php"></script> 
     <script src="js/goup.js"></script> 
+    <script>
+
+    function updateImageSources() {
+        var windowWidth = window.innerWidth;
+        var images = document.querySelectorAll('img[data-desktop-src]');
+
+        images.forEach(function (image) {
+            var desktopSrc = image.getAttribute('data-desktop-src');
+            var mobileSrc = image.getAttribute('data-mobile-src');
+
+            if (windowWidth <= 767 && mobileSrc) {
+                // Cambiar a la versión móvil si está definida y el ancho de la ventana es menor o igual a 767 píxeles
+                image.src = mobileSrc;
+            } else {
+                // Cambiar a la versión de escritorio
+                image.src = desktopSrc;
+            }
+        });
+    }
+
+    window.addEventListener('resize', updateImageSources);
+    window.addEventListener('DOMContentLoaded', updateImageSources);
+
+    // Disparar el evento resize al cargar la página para cargar la imagen correcta
+    window.dispatchEvent(new Event('resize'));
+
+</script>
+
    
 
     

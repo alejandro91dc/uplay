@@ -4,6 +4,7 @@
 <head>
     <title>Películas - Uplay</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
@@ -19,13 +20,13 @@
 
     <div id="headerContainer" class="index"></div>
 <div id="filter-menu">
-    <a href="peliculas.php?cat=Todas"><button>Todas</button></a>
-    <a href="peliculas.php?cat=Acción"><button>Acción</button></a>
-    <a href="peliculas.php?cat=Terror"><button>Terror</button></a>
-    <a href="peliculas.php?cat=Misterio"><button>Misterio</button></a>
-    <a href="peliculas.php?cat=Drama"><button>Drama</button></a>
-    <a href="peliculas.php?cat=Musical"><button>Musical</button></a>
-    <a href="peliculas.php?cat=Comedia"><button>Comedia</button></a>
+    <a href="peliculas.php?cat=Todas"><button><img src="assets/img/icons/todas.svg"><p>Todas</p></button></img></a>
+    <a href="peliculas.php?cat=Acción"><button><img src="assets/img/icons/acction.svg"><p>Acción</p></button></a>
+    <a href="peliculas.php?cat=Terror"><button><img src="assets/img/icons/terror.svg"><p>Terror</p></button></a>
+    <a href="peliculas.php?cat=Misterio"><button><img src="assets/img/icons/todas.svg"><p>Misterio</p></button></a>
+    <a href="peliculas.php?cat=Drama"><button><img src="assets/img/icons/drama.svg"><p>Drama</p></button></a>
+    <a href="peliculas.php?cat=Musical"><button><img src="assets/img/icons/musical.svg"><p>Musical</p></button></a>
+    <a href="peliculas.php?cat=Comedia"><button><img src="assets/img/icons/comedia.svg"><p>Comedia</p></button></a>
 </div>
 
     <div class="gallery">
